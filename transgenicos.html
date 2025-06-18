@@ -1,78 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Demeter Biotech</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="scripts.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demeter Biotech: Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@300;600&display=swap" rel="stylesheet">
+  <script src="scripts.js" defer></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Tourney', sans-serif;
+    }
+
+    header {
+      background: #3af73a;
+      border-radius: 50px;
+      padding: 10px 0;
+      border: 2px solid #fff;
+    }
+
+    .header-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+
+    .site-title {
+      font-size: 1.2rem;
+      margin-left: 10px;
+    }
+
+    .nav_links {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav_links li {
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .nav_links li:hover {
+      transform: scale(1.2);
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 5px 10px;
+    }
+
+    .search-box input {
+      background: transparent;
+      border: none;
+      color: white;
+      outline: none;
+    }
+
+    .categories-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px 5%;
+    }
+
+    .categories-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+
+    .category-btn {
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+      border-radius: 20px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .category-btn:hover {
+      background: white;
+      color: black;
+    }
+
+    .produtos-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px 5%;
+    }
+
+    .produtos-title {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #3af73a;
+    }
+
+    .produtos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .produto-card {
+      background: white;
+      color: black;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .produto-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .produto-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .produto-card h3 {
+      font-size: 1rem;
+      margin: 8px 0;
+    }
+
+    .produto-card p {
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+
+    .produto-card button {
+      background: #166534;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .produto-card button:hover {
+      background: #063103;
+    }
+
+    footer {
+      background: #3af73a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .produtos-title {
+        font-size: 1.2rem;
+      }
+
+      .site-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <img src="img/logo.png" width="100px" height="100px" alt="logo">
-            <span class="site-title">DEMETER BIOTECH</span>
-            <ul class="nav_links">
-                <li id="home-us-btn">TRANSGÊNICOS</li>
-            </ul>
-            
-            <div class="search-box">
-                            <input type="text" placeholder="Pesquisar...">
-                            <button type="submit">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                </svg>
-                            </button>
-                        </div>
-        </div>
-    </header>
-
-    <div class="categories-container">
-        <h2 class="categories-title">Categorias</h2>
-        <div class="categories-scroll">
-            <a href="transgenicos.html"><button class="category-btn">TRANSGÊNICOS</button></a>
-            <a href="fertilizantes .html"><button class="category-btn">FERTILIZANTES</button></a>
-            <a href="automatização.html"><button class="category-btn">AUTOMATIZAÇÃO</button></a>
-        </div>
+  <header>
+    <div class="header-container">
+      <img src="img/logo.png" alt="logo" width="80" height="80">
+      <span class="site-title">DEMETER BIOTECH</span>
+      <ul class="nav_links">
+        <li>FERTILIZANTES</li>
+      </ul>
+      <div class="search-box">
+        <input type="text" placeholder="Pesquisar...">
+        <button>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
     </div>
+  </header>
 
-        <div class="category-array">
-           <div class="category-card">
-            <img src="img/transgenicos.jpg" alt="Transgênicos">
-            <div class="category-info">
-                <h3>Transgênicos</h3>
-                <button class="inscreva-btn">Saiba mais</button>
-                <div class="category-meta">
-                </div>
-            </div>
-        </div>
+  <div class="categories-container">
+    <h2 class="categories-title">Categorias</h2>
+    <div class="categories-scroll">
+      <a href="transgenicos.html"><button class="category-btn">TRANSGÊNICOS</button></a>
+      <a href="fertilizantes.html"><button class="category-btn">FERTILIZANTES</button></a>
+      <a href="automatizacao.html"><button class="category-btn">AUTOMATIZAÇÃO</button></a>
+    </div>
+  </div>
 
-        <div class="category-card">
-            <img src="img/fertilizantes.jpg" alt="Fertilizantes">
-            <div class="category-info">
-                <h3>Fertilizantes</h3>
-                <button class="inscreva-btn">Saiba mais</button>
-                <div class="category-meta">
-                </div>
-            </div>
-        </div>
+  <div class="produtos-container">
+    <h2 class="produtos-title">Produtos em Destaque</h2>
+    <div class="produtos-grid">
+      <!-- Exemplo de produto -->
+      <div class="produto-card">
+        <img src="img/prod1.jpg" alt="Produto 1">
+        <h3>BioFértil Plus</h3>
+        <p>Fertilizante orgânico de liberação controlada.</p>
+        <button>Comprar</button>
+      </div>
+      <!-- Repita o bloco acima para outros produtos -->
+    </div>
+  </div>
 
-        <div class="category-card">
-            <img src="img/irregacao.jpg" alt="Irregacao">
-            <div class="category-info">
-                <h3>Sistemas de irregação automatizados</h3>
-                <button class="inscreva-btn">Saiba mais</button>
-                <div class="category-meta">
-                </div>
-            </div>
-        </div>         
-        </div>
-        
-    <footer>©2025 Agrinho-PR</footer>
+  <footer>©2025 Agrinho-PR</footer>
 </body>
 </html>
