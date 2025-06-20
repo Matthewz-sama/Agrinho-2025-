@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contato - Demeter Biotech</title>
+  <title>Demeter Biotech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <script src="scripts.js" defer></script>
   <style>
     body {
       background-color: #000;
@@ -16,7 +17,7 @@
     }
 
     header {
-      margin: 20px;
+        margin: 20px;
       background-color: rgb(58, 247, 58);
       border: 2px solid #fff;
       border-radius: 100px;
@@ -43,85 +44,59 @@
       color: #fff;
     }
 
-    .nav_links {
-      list-style: none;
-      display: flex;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav_links li {
-      font-size: large;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .nav_links li:hover {
-      transform: scale(1.5);
-    }
-
-    .search-box {
-      display: flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 25px;
-      padding: 6px 12px;
-    }
-
     .contato-container {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 30px;
-      background-color: #111;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #0f0;
-      color: white;
-    }
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #0f0;
+  color: white;
+}
 
-    .contato-container h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      color: #9eff9e;
-    }
+.contato-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #9eff9e;
+}
 
-    .contato-container form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+.contato-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-    .contato-container input,
-    .contato-container textarea {
-      padding: 10px;
-      border-radius: 6px;
-      border: none;
-      background-color: #222;
-      color: #fff;
-      font-family: inherit;
-      font-size: 1em;
-    }
+.contato-container input,
+.contato-container textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #222;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1em;
+}
 
-    .contato-container input:focus,
-    .contato-container textarea:focus {
-      outline: 2px solid #58f158;
-    }
+.contato-container input:focus,
+.contato-container textarea:focus {
+  outline: 2px solid #58f158;
+}
 
-    .contato-container button {
-      background-color: #39d739;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: bold;
-      color: #000;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+.contato-container button {
+  background-color: #39d739;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-    .contato-container button:hover {
-      background-color: #2ab32a;
-    }
+.contato-container button:hover {
+  background-color: #2ab32a;
+}
+
 
     footer {
       background-color: rgb(58, 247, 58);
@@ -139,7 +114,6 @@
       <a href="index.html"><span class="site-title">DEMÉTER BIOTECH</span></a>
       <ul class="nav_links">
         <li>CONTATO</li>
-        <li><a href="about.html" style="color: white;">QUEM SOMOS</a></li>
       </ul>
       <div class="search-box">
         <input type="text" placeholder="Pesquisar..." />
@@ -153,23 +127,21 @@
     </div>
   </header>
 
-  <main>
-    <div class="contato-container">
-      <h2>Fale Conosco</h2>
-      <form action="mailto:seuemail@exemplo.com" method="POST" enctype="text/plain">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+  <div class="contato-container">
+  <h2>Fale Conosco</h2>
+  <form action="mailto:seuemail@exemplo.com" method="POST" enctype="text/plain">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
 
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required>
 
-        <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
 
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
-  </main>
+    <button type="submit">Enviar</button>
+  </form>
+</div>
 
   <footer>©Demeter Biotech: Todos os direitos reservados.</footer>
 </body>
