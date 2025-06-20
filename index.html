@@ -64,14 +64,26 @@
       transform: scale(1.5);
     }
 
-    .gif {
-      background-image: url('img/a1.mp4');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+    .video-background {
+  position: relative;
   width: 100%;
   height: 100vh;
-    }
+  overflow: hidden;
+  z-index: 0;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  object-fit: cover;
+}
 
     .search-box {
       display: flex;
@@ -215,7 +227,13 @@
       <a href="automatização.html"><button class="category-btn">AUTOMAÇÃO</button></a>
     </div>
   </div>
-<div class="gif"></div>
+<div class="video-background">
+  <video autoplay muted loop playsinline>
+    <source src="videos/fundo.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo HTML5.
+  </video>
+</div>
+
   <div class="produtos-container">
     <h2 class="produtos-title">Produtos em Destaque</h2>
     <div class="produtos-grid">
