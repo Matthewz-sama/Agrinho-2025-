@@ -231,3 +231,49 @@ footer {
     justify-content: space-between;
     
 }
+
+/**/
+.cart-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.cart-button i {
+  transition: transform 0.4s ease;
+}
+
+.cart-button.adding i {
+  transform: translateX(100%);
+}
+
+.cart-button.adding {
+  background-color: #3e8e41;
+}
+
+.cart-button .button-text {
+  transition: opacity 0.3s ease;
+}
+
+.cart-button.adding .button-text {
+  opacity: 0;
+}
+
+.cart-button.added .button-text {
+  opacity: 1;
+}
+
+.cart-button.added {
+  background-color: #2196F3;
+}
