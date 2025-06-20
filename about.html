@@ -70,100 +70,65 @@
       border-radius: 25px;
       padding: 6px 12px;
     }
-    .categories-container{
-    margin: 0px 30px 30px 30px;
-    }
-    hr{
-        border-color: #fff solid 2px;
-        justify-content: center;
-        min-width: 90%;
-    }
 
-    .categories-scroll {
-      display: flex;
-      justify-content: center;
-    }
+    .quem-somos {
+  background-color: #101010;
+  padding: 60px 30px;
+  color: #ffffff;
+  border-top: 1px solid #3af73a;
+  border-bottom: 1px solid #3af73a;
+}
 
-    .category-btn {
-      background: transparent;
-      color: #fff;
-      border: 1px solid #fff;
-      border-radius: 25px;
-      padding: 6px 16px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.quem-somos-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
 
-    .category-btn:hover {
-      background: #fff;
-      color: #000;
-    }
+.quem-somos h2 {
+  font-size: 2.5rem;
+  color: #b0ffaa;
+  margin-bottom: 30px;
+}
 
-    .produtos-container {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
+.quem-somos p {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
 
-    .produtos-title {
-      font-size: 2em;
-      color: #b0ffaa;
-      text-align: center;
-      margin-bottom: 30px;
-    }
+.blocos-mvv {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  text-align: left;
+}
 
-    .produtos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
+.bloco-mvv {
+  background-color: #1a1a1a;
+  border: 1px solid #3af73a;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s;
+}
 
-    .produto-card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      padding: 15px;
-      text-align: center;
-      transition: transform 0.2s;
-    }
+.bloco-mvv h3 {
+  color: #3af73a;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
 
-    .produto-card:hover {
-      transform: translateY(-5px);
-    }
+.bloco-mvv p {
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
 
-    .produto-card img {
-      width: 100%;
-      max-height: 150px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .produto-card h3 {
-      color: #14532d;
-      font-size: 1.1em;
-      margin-top: 10px;
-    }
-
-    .produto-card p {
-      font-size: 0.9em;
-      color: #555;
-      margin: 10px 0;
-    }
-
-    .produto-card button {
-      background-color: #166534;
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .produto-card button:hover {
-      background-color: #063103;
-    }
+.bloco-mvv:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(58, 247, 58, 0.3);
+}
 
     footer {
       background-color: rgb(58, 247, 58);
@@ -194,9 +159,38 @@
     </div>
   </header>
 
-  <div class="somos-container">
-    
+  <section class="quem-somos">
+  <div class="quem-somos-container">
+    <h2>Quem Somos</h2>
+    <p>
+      A <strong>Deméter Biotech</strong> é uma empresa brasileira voltada à inovação no campo. Com foco em <strong>biotecnologia, automação agrícola e soluções sustentáveis</strong>,
+      oferecemos produtos modernos como fertilizantes inteligentes, sementes transgênicas de alta performance e sistemas automatizados que otimizam a produção rural.
+      Nosso compromisso é promover uma agricultura mais eficiente, produtiva e ambientalmente responsável.
+    </p>
+
+    <div class="blocos-mvv">
+      <div class="bloco-mvv">
+        <h3>Missão</h3>
+        <p>
+          Desenvolver e comercializar tecnologias agrícolas inovadoras que aumentem a produtividade e sustentem o equilíbrio ecológico nas lavouras.
+        </p>
+      </div>
+      <div class="bloco-mvv">
+        <h3>Visão</h3>
+        <p>
+          Ser referência nacional em biotecnologia agrícola, tornando-se símbolo de modernização, qualidade e sustentabilidade no campo brasileiro.
+        </p>
+      </div>
+      <div class="bloco-mvv">
+        <h3>Valores</h3>
+        <p>
+          Inovação, ética, compromisso com o meio ambiente, valorização do agricultor, responsabilidade social e excelência em cada produto entregue.
+        </p>
+      </div>
+    </div>
   </div>
+</section>
+
 
   
 
