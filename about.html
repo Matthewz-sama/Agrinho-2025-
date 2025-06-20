@@ -71,22 +71,65 @@
       padding: 6px 12px;
     }
 
-    main {
-      flex: 1;
-      padding: 30px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+    .quem-somos {
+  background-color: #101010;
+  padding: 60px 30px;
+  color: #ffffff;
+  border-top: 1px solid #3af73a;
+  border-bottom: 1px solid #3af73a;
+  
+}
 
-    section h2 {
-      color: rgb(58, 247, 58);
-      margin-bottom: 10px;
-    }
+.quem-somos-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
 
-    section p {
-      margin-bottom: 25px;
-      line-height: 1.5;
-    }
+.quem-somos h2 {
+  font-size: 2.5rem;
+  color: #b0ffaa;
+  margin-bottom: 30px;
+}
+
+.quem-somos p {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.blocos-mvv {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  text-align: left;
+}
+
+.bloco-mvv {
+  background-color: #1a1a1a;
+  border: 1px solid #3af73a;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s;
+}
+
+.bloco-mvv h3 {
+  color: #3af73a;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.bloco-mvv p {
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.bloco-mvv:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(58, 247, 58, 0.3);
+}
 
     footer {
       background-color: rgb(58, 247, 58);
@@ -117,31 +160,37 @@
     </div>
   </header>
 
-  <main>
-      <section>
-        <h2>Quem Somos</h2>
-        <p>A Demeter Biotech é uma empresa comprometida com a inovação no agronegócio, oferecendo produtos de ponta como fertilizantes avançados, sementes transgênicas de alto desempenho e sistemas de automação para agricultura de precisão.</p>
-      </section>
+  <section class="quem-somos">
+  <div class="quem-somos-container">
+    <h2>Quem Somos</h2>
+    <p>
+      A <strong>Deméter Biotech</strong> é uma empresa brasileira voltada à inovação no campo. Com foco em <strong>biotecnologia, automação agrícola e soluções sustentáveis</strong>,
+      oferecemos produtos modernos como fertilizantes inteligentes, sementes transgênicas de alta performance e sistemas automatizados que otimizam a produção rural.
+      Nosso compromisso é promover uma agricultura mais eficiente, produtiva e ambientalmente responsável.
+    </p>
 
-      <section>
-        <h2>Missão</h2>
-        <p>Promover a sustentabilidade e o aumento da produtividade agrícola por meio de soluções biotecnológicas inovadoras e acessíveis a agricultores de todo o país.</p>
-      </section>
-
-      <section>
-        <h2>Visão</h2>
-        <p>Ser referência nacional em tecnologias agrícolas sustentáveis, contribuindo para um futuro mais eficiente, ecológico e rentável no campo.</p>
-      </section>
-
-      <section>
-        <h2>Valores</h2>
-        <p>Inovação, sustentabilidade, ética, compromisso com o produtor rural e respeito ao meio ambiente.</p>
-      </section>
-    </main>
-
-
-
-  
+    <div class="blocos-mvv">
+      <div class="bloco-mvv">
+        <h3>Missão</h3>
+        <p>
+          Desenvolver e comercializar tecnologias agrícolas inovadoras que aumentem a produtividade e sustentem o equilíbrio ecológico nas lavouras.
+        </p>
+      </div>
+      <div class="bloco-mvv">
+        <h3>Visão</h3>
+        <p>
+          Ser referência nacional em biotecnologia agrícola, tornando-se símbolo de modernização, qualidade e sustentabilidade no campo brasileiro.
+        </p>
+      </div>
+      <div class="bloco-mvv">
+        <h3>Valores</h3>
+        <p>
+          Inovação, ética, compromisso com o meio ambiente, valorização do agricultor, responsabilidade social e excelência em cada produto entregue.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
   <footer>©Demeter Biotech: Todos os direitos reservados.</footer>
 </body>
