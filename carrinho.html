@@ -372,195 +372,109 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <a href="index.html"><img src="img/logo.png" width="100" height="100" alt="logo" /></a>
-            <a href="index.html"><span class="site-title" id="siteTitle">DEMÉTER BIOTECH</span></a>
-
-            <ul class="nav_links" id="navLinks">
-                <li><a href="contact.html" style="color:white;">CONTATO</a></li>
-                <li><a href="about.html" style="color:white;">QUEM SOMOS</a></li>
-                </ul>
-            <div class="search-box">
-                <input type="text" placeholder="Pesquisar..." />
-                <button type="submit">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </button>
-            </div>
-            <div class="cart-icon">
-                <a href="carrinho.html" title="Ver carrinho">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
-                        <path d="M7 4h-2l-3 9v1h2l1.6 4.2c.2.6.8.8 1.3.8h10c.6 0 1.1-.3 1.3-.8l1.6-4.2h2v-1l-3-9h-2l-1 3h-6l-1-3zm1.2 5h7.6l1.4 4h-10.4l1.4-4zm.8 10c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zm8 0c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5z" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <section class="cart-section">
-        <h2>Seu Carrinho</h2>
-        <div class="cart-container">
-            <div class="cart-items">
-                <div class="cart-item">
-                    <img src="img/adubo.jpg" alt="Produto 1" class="cart-item-image">
-                    <div class="cart-item-details">
-                        <h4>Fertilizante Inteligente Ultra-Crescimento</h4>
-                        <p>Preço Unitário: R$ 150,00</p>
-                    </div>
-                    <div class="cart-item-quantity">
-                        <button class="quantity-decrease">-</button>
-                        <span>1</span>
-                        <button class="quantity-increase">+</button>
-                    </div>
-                    <span class="cart-item-price">R$ 150,00</span>
-                    <button class="remove-item-btn">Remover</button>
-                </div>
-
-                <div class="cart-item">
-                    <img src="img/aut6.jpg" alt="Produto 2" class="cart-item-image">
-                    <div class="cart-item-details">
-                        <h4>Semente de Milho Transgênico Resistente</h4>
-                        <p>Preço Unitário: R$ 250,00</p>
-                    </div>
-                    <div class="cart-item-quantity">
-                        <button class="quantity-decrease">-</button>
-                        <span>2</span>
-                        <button class="quantity-increase">+</button>
-                    </div>
-                    <span class="cart-item-price">R$ 500,00</span>
-                    <button class="remove-item-btn">Remover</button>
-                </div>
-
-                </div>
-
-            <div class="cart-summary">
-                <h3>Resumo do Pedido</h3>
-                <div class="cart-summary-line">
-                    <span>Subtotal:</span>
-                    <span>R$ 650,00</span>
-                </div>
-                <div class="cart-summary-line">
-                    <span>Frete:</span>
-                    <span>R$ 30,00</span>
-                </div>
-                <div class="cart-summary-line total">
-                    <span>Total:</span>
-                    <span>R$ 680,00</span>
-                </div>
-                <button class="checkout-btn">Finalizar Compra</button>
-            </div>
-        </div>
-    </section>
-
-    <footer>©Deméter Biotech: Todos os direitos reservados.</footer>
-
-    <script>
-        function carregarCarrinho() {
-  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-  const container = document.querySelector('.cart-items');
-  container.innerHTML = ''; // Limpa o conteúdo atual
-
-  let subtotal = 0;
-
-  carrinho.forEach((item, index) => {
-    subtotal += item.preco * item.quantidade;
-
-    const div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML = `
-      <img src="${item.imagem}" alt="${item.nome}" class="cart-item-image">
-      <div class="cart-item-details">
-        <h4>${item.nome}</h4>
-        <p>Preço Unitário: R$ ${item.preco.toFixed(2)}</p>
+  <header>
+    <div class="header-container">
+      <a href="index.html"><img src="img/logo.png" width="100" height="100" alt="logo" /></a>
+      <a href="index.html"><span class="site-title" id="siteTitle">DEMÉTER BIOTECH</span></a>
+      <ul class="nav_links" id="navLinks">
+        <li><a href="contact.html" style="color:white;">CONTATO</a></li>
+        <li><a href="about.html" style="color:white;">QUEM SOMOS</a></li>
+      </ul>
+      <div class="search-box">
+        <input type="text" placeholder="Pesquisar..." />
+        <button type="submit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
       </div>
-      <div class="cart-item-quantity">
-        <button onclick="alterarQuantidade(${index}, -1)">-</button>
-        <span>${item.quantidade}</span>
-        <button onclick="alterarQuantidade(${index}, 1)">+</button>
+      <div class="cart-icon">
+        <a href="carrinho.html" title="Ver carrinho">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
+            <path d="M7 4h-2l-3 9v1h2l1.6 4.2c.2.6.8.8 1.3.8h10c.6 0 1.1-.3 1.3-.8l1.6-4.2h2v-1l-3-9h-2l-1 3h-6l-1-3zm1.2 5h7.6l1.4 4h-10.4l1.4-4zm.8 10c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zm8 0c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5z" />
+          </svg>
+        </a>
       </div>
-      <span class="cart-item-price">R$ ${(item.preco * item.quantidade).toFixed(2)}</span>
-      <button class="remove-item-btn" onclick="removerItem(${index})">Remover</button>
-    `;
-    container.appendChild(div);
-  });
+    </div>
+  </header>
 
-  document.querySelector('.cart-summary-line:nth-child(1) span:last-child').textContent = `R$ ${subtotal.toFixed(2)}`;
-  document.querySelector('.cart-summary-line.total span:last-child').textContent = `R$ ${(subtotal + 30).toFixed(2)}`; // Com frete
-}
+  <section class="cart-section">
+    <h2>Seu Carrinho</h2>
+    <div class="cart-container">
+      <div class="cart-items"></div>
+      <div class="cart-summary">
+        <h3>Resumo do Pedido</h3>
+        <div class="cart-summary-line">
+          <span>Subtotal:</span>
+          <span>R$ 0,00</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>Frete:</span>
+          <span>R$ 30,00</span>
+        </div>
+        <div class="cart-summary-line total">
+          <span>Total:</span>
+          <span>R$ 30,00</span>
+        </div>
+        <button class="checkout-btn">Finalizar Compra</button>
+      </div>
+    </div>
+  </section>
 
-function alterarQuantidade(index, delta) {
-  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-  carrinho[index].quantidade += delta;
-  if (carrinho[index].quantidade <= 0) carrinho.splice(index, 1);
-  localStorage.setItem('carrinho', JSON.stringify(carrinho));
-  carregarCarrinho();
-}
+  <footer>
+    ©Deméter Biotech: Todos os direitos reservados.
+  </footer>
 
-function removerItem(index) {
-  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-  carrinho.splice(index, 1);
-  localStorage.setItem('carrinho', JSON.stringify(carrinho));
-  carregarCarrinho();
-}
+  <script>
+    // JavaScript dinâmico do carrinho (carregamento, alterações e remoção)
+    function carregarCarrinho() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const container = document.querySelector('.cart-items');
+      container.innerHTML = '';
+      let subtotal = 0;
 
-document.addEventListener('DOMContentLoaded', carregarCarrinho);
+      carrinho.forEach((item, index) => {
+        subtotal += item.preco * item.quantidade;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <img src="${item.imagem}" alt="${item.nome}" class="cart-item-image">
+          <div class="cart-item-details">
+            <h4>${item.nome}</h4>
+            <p>Preço Unitário: R$ ${item.preco.toFixed(2)}</p>
+          </div>
+          <div class="cart-item-quantity">
+            <button onclick="alterarQuantidade(${index}, -1)">-</button>
+            <span>${item.quantidade}</span>
+            <button onclick="alterarQuantidade(${index}, 1)">+</button>
+          </div>
+          <span class="cart-item-price">R$ ${(item.preco * item.quantidade).toFixed(2)}</span>
+          <button class="remove-item-btn" onclick="removerItem(${index})">Remover</button>
+        `;
+        container.appendChild(div);
+      });
 
-        //nnnn
-        // O JavaScript para o menu hambúrguer pode ficar no seu scripts.js ou aqui mesmo
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburgerIcon = document.querySelector('.hamburger-icon');
-            const navLinks = document.getElementById('navLinks');
-            const siteTitle = document.getElementById('siteTitle');
+      document.querySelector('.cart-summary-line:nth-child(1) span:last-child').textContent = `R$ ${subtotal.toFixed(2)}`;
+      document.querySelector('.cart-summary-line.total span:last-child').textContent = `R$ ${(subtotal + 30).toFixed(2)}`;
+    }
 
-            if (hamburgerIcon && navLinks && siteTitle) {
-                hamburgerIcon.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                    siteTitle.classList.toggle('active');
-                });
+    function alterarQuantidade(index, delta) {
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho[index].quantidade += delta;
+      if (carrinho[index].quantidade <= 0) carrinho.splice(index, 1);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      carregarCarrinho();
+    }
 
-                navLinks.querySelectorAll('li a').forEach(link => { // Notei que agora você tem <a> dentro de <li>
-                    link.addEventListener('click', () => {
-                        navLinks.classList.remove('active');
-                        siteTitle.classList.remove('active');
-                    });
-                });
-            }
-        });
+    function removerItem(index) {
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho.splice(index, 1);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      carregarCarrinho();
+    }
 
-        // Você adicionaria o JS para gerenciar o carrinho (quantidade, remover, totais) aqui ou em scripts.js
-        // Exemplo simples de funcionalidade de quantidade (apenas visual, sem lógica de dados)
-        document.querySelectorAll('.quantity-increase').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const quantitySpan = e.target.previousElementSibling;
-                let quantity = parseInt(quantitySpan.textContent);
-                quantitySpan.textContent = quantity + 1;
-                // Em um projeto real, você atualizaria o preço total e o subtotal aqui.
-            });
-        });
-
-        document.querySelectorAll('.quantity-decrease').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const quantitySpan = e.target.nextElementSibling;
-                let quantity = parseInt(quantitySpan.textContent);
-                if (quantity > 1) {
-                    quantitySpan.textContent = quantity - 1;
-                    // Em um projeto real, você atualizaria o preço total e o subtotal aqui.
-                }
-            });
-        });
-
-        document.querySelectorAll('.remove-item-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const cartItem = e.target.closest('.cart-item');
-                if (cartItem) {
-                    cartItem.remove();
-                    // Em um projeto real, você removeria o item do array de produtos do carrinho e recalcularia os totais.
-                }
-            });
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', carregarCarrinho);
+  </script>
 </body>
 </html>
