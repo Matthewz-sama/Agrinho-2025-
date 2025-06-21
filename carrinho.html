@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demeter Biotech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <script src="scripts.js" defer></script>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      font-family: "Tourney", sans-serif;
+    }
+
+    header {
+        margin: 20px;
+      background-color: rgb(58, 247, 58);
+      border: 2px solid #fff;
+      border-radius: 100px;
+      padding: 10px 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .site-title {
+      font-size: x-large;
+      margin-left: 10px;
+      color: #fff;
+    }
+
+    .nav_links {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav_links li {
+      font-size: large;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .nav_links li:hover {
+      transform: scale(1.5);
+    }
+
+    .search-box {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 6px 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  background: white;
+  color: rgb(1, 1, 1);
+  font-size: 1rem;
+  padding: 5px;
+  outline: none;
+  min-width: 0;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 4px;
+}
+.cart-icon {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon svg {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.cart-icon svg:hover {
+  transform: scale(1.2);
+}
+    .categories-container{
+    margin: 0px 30px 30px 30px;
+    }
+    hr{
+        border-color: #fff solid 2px;
+        justify-content: center;
+        min-width: 90%;
+    }
+
+    .categories-scroll {
+      display: flex;
+      justify-content: center;
+    }
+
+    .category-btn {
+      background: transparent;
+      color: #fff;
+      border: 1px solid #fff;
+      border-radius: 25px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .category-btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .produtos-container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .produtos-title {
+      font-size: 2em;
+      color: #b0ffaa;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .produtos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .produto-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .produto-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .produto-card img {
+      width: 100%;
+      max-height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .produto-card h3 {
+      color: #14532d;
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+
+    .produto-card p {
+      font-size: 0.9em;
+      color: #555;
+      margin: 10px 0;
+    }
+
+    .produto-card button {
+      background-color: #166534;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .produto-card button:hover {
+      background-color: #063103;
+    }
+
+    footer {
+      background-color: rgb(58, 247, 58);
+      font-size: medium;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+     @media (max-width: 768px) {
+  .site-title,
+  .nav_links {
+    display: none;
+  }
+
+  .header-container {
+    justify-content: space-between;
+  }
+
+  .search-box {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .cart-icon {
+    margin-top: 10px;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <img src="img/logo.png" width="100" height="100" alt="logo" />
+      <a href="index.html"><span class="site-title">DEMÉTER BIOTECH</span></a>
+      <ul class="nav_links">
+        <li>FERTILIZANTES</li>
+      </ul>
+      <div class="search-box">
+        <input type="text" placeholder="Pesquisar..." />
+        <button type="submit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="cart-icon">
+      <a href="carrinho.html" title="Ver carrinho">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
+      <path d="M7 4h-2l-3 9v1h2l1.6 4.2c.2.6.8.8 1.3.8h10c.6 0 1.1-.3 1.3-.8l1.6-4.2h2v-1l-3-9h-2l-1 3h-6l-1-3zm1.2 5h7.6l1.4 4h-10.4l1.4-4zm.8 10c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zm8 0c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5z"/>
+      </svg>
+      </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="categories-container">
+    <h2 class="categories-title">Categorias</h2>
+    <hr>
+    <div class="categories-scroll">
+      <a href="transgenicos.html"><button class="category-btn">TRANSGÊNICOS</button></a>
+      <a href="fertilizantes.html"><button class="category-btn">FERTILIZANTES</button></a>
+      <a href="automatização.html"><button class="category-btn">AUTOMAÇÃO</button></a>
+    </div>
+  </div>
+
+  <div class="produtos-container">
+    <h2 class="produtos-title">Produtos</h2>
+    <div class="produtos-grid">
+      <div class="produto-card">
+        <img src="img/fert1.webp" alt="Produto 1" />
+        <h3>MAXGREEN</h3>
+        <p>NPK 10-10-10 - Mineral</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto-card">
+        <img src="img/fert2.webp" alt="Produto 2" />
+        <h3>FERT AZA</h3>
+        <p>Fert-Bio - Orgânico</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto-card">
+        <img src="img/fert3.webp" alt="Produto 3" />
+        <h3>HERINGER</h3>
+        <p>Superfosfato Simples (SSP) -	Mineral</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto-card">
+        <img src="img/fert4.jpg" alt="Produto 4" />
+        <h3>TITANIUM</h3>
+        <p>Fertilizante Foliar Completo	- Mineral</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto-card">
+        <img src="img/fert5.jpg" alt="Produto 5" />
+        <h3>FORTH</h3>
+        <p>Fertilizante Bokashi -	Orgânico</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto-card">
+        <img src="img/fert6.webp" alt="Produto 6" />
+        <h3>MAIS FERTIL</h3>
+        <p>Fósforo 30% - Mineral</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto-card">
+        <img src="img/fert7.webp" alt="Produto 7" />
+        <h3>HERINGER</h3>
+        <p>Uréia (46% N)	- Nitrogenado</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto-card">
+        <img src="img/fert8.webp" alt="Produto 8" />
+        <h3>VITAPLAN</h3>
+        <p>Adubo de Torta de Mamona -	Orgânico</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto-card">
+        <img src="img/fert9.jpg" alt="Produto 9" />
+        <h3>FERTIL SHOP</h3>
+        <p>Cloreto de Potássio (KCl)	- Mineral</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto-card">
+        <img src="img/fert10.webp" alt="Produto 10" />
+        <h3>CALTERRA</h3>
+        <p>Composto Humus de Minhoca	- Orgânico</p>
+        <button>Comprar</button>
+      </div>
+       <div class="produto-card">
+        <img src="img/fert11.jpg" alt="Produto 11" />
+        <h3>CALFÉRTIL</h3>
+        <p>Calcário Agrícola	- Corretivo</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto-card">
+        <img src="img/fert12.jpg" alt="Produto 12" />
+        <h3>FORTH</h3>
+        <p>Fertilizante Microelementar Quelatado - Mineral</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>©Deméter Biotech: Todos os direitos reservados.</footer>
+</body>
+</html>
