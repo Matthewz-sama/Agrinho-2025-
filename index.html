@@ -304,29 +304,48 @@
         <img src="img/aut1.avif" alt="Produto 1" />
         <h3>UAV DRONE</h3>
         <p>AgroDrone Pulverizador</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/fert11.jpg" alt="Produto 2" />
         <h3>CALFÉRTIL</h3>
         <p>Calcário Agrícola	- Corretivo</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/morgan2.webp" alt="Produto 3" />
         <h3>MORGAN 20A55</h3>
         <p>Semente de Milho precoce de ampla adaptação.</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/Pioneer2.webp" alt="Produto 4" />
         <h3>PIONEER 98R30CE</h3>
         <p>Semente de Soja com tolerância aos Nematoides de Cisto.</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
     </div>
   </div>
 
   <footer>©Deméter Biotech: Todos os direitos reservados.</footer>
+  <script>
+    function adicionarAoCarrinho(nome, imagem, preco) {
+  const produto = { nome, imagem, preco, quantidade: 1 };
+
+  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+  // Verifica se já existe
+  const existente = carrinho.find(p => p.nome === nome);
+  if (existente) {
+    existente.quantidade += 1;
+  } else {
+    carrinho.push(produto);
+  }
+
+  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+  alert('Produto adicionado ao carrinho!');
+}
+
+  </script>
 </body>
 </html>

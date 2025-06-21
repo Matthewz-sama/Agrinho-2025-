@@ -278,43 +278,43 @@
         <img src="img/morgan1.webp" alt="Produto 1" />
         <h3>MORGAN 30A37</h3>
         <p>Semente de Milho superprecoce tolerante ao estresse hídrico.</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/morgan2.webp" alt="Produto 2" />
         <h3>MORGAN 20A55</h3>
         <p>Semente de Milho precoce de ampla adaptação.</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/Pioneer1.webp" alt="Produto 3" />
         <h3>PIONEER 97Y70CE</h3>
         <p>Semente de Soja com ciclo precoce e hábito de crescimento indeterminado.</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/Pioneer2.webp" alt="Produto 4" />
         <h3>PIONEER 98R30CE</h3>
         <p>Semente de Soja com tolerância aos Nematoides de Cisto.</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/Forseed1.jpg" alt="Produto 5" />
         <h3>FORSEED FS610</h3>
         <p>Semente de Milho com estabilidade e alta produtividade</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/Pioneer3.webp" alt="Produto 6" />
         <h3>PIONEER 50A60</h3>
         <p>Semente de Sorgo com segurança contra doenças foliares.</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/Embrapa1.webp" alt="Produto 7" />
         <h3>EMBRAPA BRS 2361 i2X</h3>
         <p>Semente de Soja com resistência à podridão radicular.</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/Syngenta1.webp" alt="Produto 8" />
@@ -326,29 +326,48 @@
         <img src="img/Detapine1.webp" alt="Produto 9" />
         <h3>DELTAPINE DP 2077 B3RF</h3>
         <p>Semente de Algodão com alta qualidade de fibra</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/Tmg1.webp" alt="Produto 10" />
         <h3>TMG 30 B3RF</h3>
         <p>Semente de Algodão tolerante a ramulária.</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
        <div class="produto-card">
         <img src="img/Embrapa2.jpg" alt="Produto 11" />
         <h3>EMBRAPA BRS FC423</h3>
         <p>Semente de Feijão com escurecimento lento dos grãos.</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
       <div class="produto-card">
         <img src="img/Pioneer4.webp" alt="Produto 12" />
         <h3>PIONEER P3707VYH</h3>
         <p>Semente de Milho com boa resposta a altos níveis de investimentos.</p>
-        <button>Comprar</button>
+        <button onclick="adicionarAoCarrinho('MAXGREEN', 'img/fert1.webp', 150)">Comprar</button>
       </div>
     </div>
   </div>
 
   <footer>©Deméter Biotech: Todos os direitos reservados.</footer>
+  <script>
+    function adicionarAoCarrinho(nome, imagem, preco) {
+  const produto = { nome, imagem, preco, quantidade: 1 };
+
+  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+  // Verifica se já existe
+  const existente = carrinho.find(p => p.nome === nome);
+  if (existente) {
+    existente.quantidade += 1;
+  } else {
+    carrinho.push(produto);
+  }
+
+  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+  alert('Produto adicionado ao carrinho!');
+}
+
+  </script>
 </body>
 </html>
