@@ -406,17 +406,18 @@
       <div class="cart-summary">
         <h3>Resumo do Pedido</h3>
         <div class="cart-summary-line">
-          <span>Subtotal:</span>
-          <span>R$ 0,00</span>
+            <span>Subtotal:</span>
+        <span id="subtotal-valor">R$ 0,00</span>
         </div>
         <div class="cart-summary-line">
-          <span>Frete:</span>
-          <span>R$ 30,00</span>
+        <span>Frete:</span>
+             <span id="frete-valor">R$ 30,00</span>
         </div>
         <div class="cart-summary-line total">
-          <span>Total:</span>
-          <span>R$ 30,00</span>
+            <span>Total:</span>
+            <span id="total-valor">R$ 0,00</span>
         </div>
+
         <button class="checkout-btn" id="finalizarCompraBtn">Finalizar Compra</button>
       </div>
     </div>
@@ -429,10 +430,8 @@
   <script>
     // JavaScript dinâmico do carrinho (carregamento, alterações e remoção)
     function carregarCarrinho() {
-      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      const container = document.querySelector('.cart-items');
-      container.innerHTML = '';
-      let subtotal = 0;
+     document.querySelector('.cart-summary-line:nth-child(1) span:last-child').textContent = `R$ ${subtotal.toFixed(2)}`;
+document.querySelector('.cart-summary-line.total span:last-child').textContent = `R$ ${(subtotal + 30).toFixed(2)}`;
 
       carrinho.forEach((item, index) => {
         subtotal += item.preco * item.quantidade;
