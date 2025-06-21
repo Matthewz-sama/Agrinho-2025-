@@ -175,85 +175,29 @@
       margin-top: 150px;
     }
     @media (max-width: 768px) {
-  /* Hide these by default on small screens */
   .site-title,
   .nav_links {
     display: none;
   }
 
   .header-container {
-    /* Allow items to wrap to the next line */
-    justify-content: space-between; /* Space out items */
-    position: relative; /* For absolute positioning of the menu */
+    justify-content: space-between;
   }
-
-  .hamburger-menu {
-    display: block; /* Show the hamburger menu icon */
-    order: 1; /* Place it first in the flex order */
-  }
-
-  .hamburger-icon {
-    background: none;
-    border: none;
-    color: rgb(5, 5, 5);
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 5px 10px;
-  }
-
-  /* Style the navigation links when the menu is open */
-  .nav_links.active {
-    display: flex;
-    flex-direction: column; /* Stack links vertically */
-    width: 100%; /* Take full width */
-    background-color: rgb(58, 247, 58); /* Background for the dropdown */
-    position: absolute;
-    top: 100%; /* Position below the header */
-    left: 0;
-    padding: 10px 0;
-    border-top: 1px solid #fff;
-    z-index: 10; /* Ensure it's above other content */
-    text-align: center; /* Center the text */
-  }
-
-  .nav_links.active li {
-    padding: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .nav_links.active li:last-child {
-    border-bottom: none;
-  }
-
-  /* Show site title within the active menu */
-  .site-title.active {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    margin-bottom: 10px;
-  }
-
+.header-container img{
+  max-width: 80px;
+  max-height: 80px;
+}
   .search-box {
-    order: 3; /* Place search box after logo and menu */
-    width: calc(100% - 120px); /* Adjust width to fit beside cart/logo */
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 10px;
+    width: 50%;
   }
 
   .cart-icon {
-    order: 4; /* Place cart icon last */
-    margin-left: auto; /* Push it to the right */
+    margin-top: 10px;
   }
   header{
         border-radius: 10px;
       }
-}
-
-/* Ensure hamburger icon is hidden on larger screens */
-.hamburger-menu {
-  display: none;
 }
   </style>
 </head>
