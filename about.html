@@ -321,5 +321,27 @@
 
 
   <footer>©Deméter Biotech: Todos os direitos reservados.</footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerIcon = document.querySelector('.hamburger-icon');
+  const navLinks = document.getElementById('navLinks');
+  const siteTitle = document.getElementById('siteTitle'); // Get the site title element
+
+  if (hamburgerIcon && navLinks && siteTitle) {
+    hamburgerIcon.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      siteTitle.classList.toggle('active'); // Toggle 'active' class on site title
+    });
+
+    // Optional: Close the menu when a link is clicked (if you add more links)
+    navLinks.querySelectorAll('li').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        siteTitle.classList.remove('active');
+      });
+    });
+  }
+});
+  </script>
 </body>
 </html>
