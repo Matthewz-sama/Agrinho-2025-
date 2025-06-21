@@ -417,7 +417,7 @@
           <span>Total:</span>
           <span>R$ 30,00</span>
         </div>
-        <button class="checkout-btn">Finalizar Compra</button>
+        <button class="checkout-btn" id="finalizarCompraBtn">Finalizar Compra</button>
       </div>
     </div>
   </section>
@@ -475,6 +475,23 @@
     }
 
     document.addEventListener('DOMContentLoaded', carregarCarrinho);
+    document.getElementById('finalizarCompraBtn').addEventListener('click', () => {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio. Adicione itens antes de finalizar a compra.");
+        return;
+    }
+
+    // Simula o envio do pedido
+    alert("Compra finalizada com sucesso!\nObrigado por comprar com a Deméter Biotech.");
+
+    // Limpa o carrinho
+    localStorage.removeItem('carrinho');
+
+    // Atualiza visualmente a página
+    carregarCarrinho();
+});
   </script>
 </body>
 </html>
