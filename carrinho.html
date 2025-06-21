@@ -1,338 +1,601 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demeter Biotech</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-  <script src="scripts.js" defer></script>
-  <style>
-    body {
-      background-color: #000;
-      color: #fff;
-      margin: 0;
-      font-family: "Tourney", sans-serif;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demeter Biotech - Carrinho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <script src="scripts.js" defer></script>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            font-family: "Tourney", sans-serif;
+        }
 
-    header {
-        margin: 20px;
-      background-color: rgb(58, 247, 58);
-      border: 2px solid #fff;
-      border-radius: 100px;
-      padding: 10px 0;
-    }
+        header {
+            margin: 20px;
+            background-color: rgb(58, 247, 58);
+            border: 2px solid #fff;
+            border-radius: 100px;
+            padding: 10px 0;
+        }
 
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      color: white;
-    }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            color: white;
+            position: relative; /* Adicionado para o menu hambúrguer */
+        }
 
-    a {
-      text-decoration: none;
-    }
+        a {
+            text-decoration: none;
+        }
 
-    .site-title {
-      font-size: x-large;
-      margin-left: 10px;
-      color: #fff;
-    }
+        .site-title {
+            font-size: x-large;
+            margin-left: 10px;
+            color: #fff;
+        }
 
-    .nav_links {
-      list-style: none;
-      display: flex;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-    }
+        .nav_links {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+        }
 
-    .nav_links li {
-      font-size: large;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
+        .nav_links li {
+            font-size: large;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
 
-    .nav_links li:hover {
-      transform: scale(1.5);
-    }
+        .nav_links li:hover {
+            transform: scale(1.5);
+        }
 
-    .search-box {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 25px;
-  padding: 6px 12px;
-  width: 100%;
-  max-width: 300px;
-}
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 6px 12px;
+            width: 100%;
+            max-width: 300px;
+        }
 
-.search-box input {
-  flex: 1;
-  border: none;
-  background: white;
-  color: rgb(1, 1, 1);
-  font-size: 1rem;
-  padding: 5px;
-  outline: none;
-  min-width: 0;
-}
+        .search-box input {
+            flex: 1;
+            border: none;
+            background: white;
+            color: rgb(1, 1, 1);
+            font-size: 1rem;
+            padding: 5px;
+            outline: none;
+            min-width: 0;
+        }
 
-.search-box button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: white;
-  padding: 4px;
-}
-.cart-icon {
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
-}
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: white;
+            padding: 4px;
+        }
 
-.cart-icon svg {
-  cursor: pointer;
-  transition: transform 0.2s;
-}
+        .cart-icon {
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+        }
 
-.cart-icon svg:hover {
-  transform: scale(1.2);
-}
-    .categories-container{
-    margin: 0px 30px 30px 30px;
-    }
-    hr{
-        border-color: #fff solid 2px;
-        justify-content: center;
-        min-width: 90%;
-    }
+        .cart-icon svg {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
 
-    .categories-scroll {
-      display: flex;
-      justify-content: center;
-    }
+        .cart-icon svg:hover {
+            transform: scale(1.2);
+        }
 
-    .category-btn {
-      background: transparent;
-      color: #fff;
-      border: 1px solid #fff;
-      border-radius: 25px;
-      padding: 6px 16px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
+        .quem-somos {
+            background-color: #101010;
+            padding: 60px 30px;
+            color: #ffffff;
+        }
 
-    .category-btn:hover {
-      background: #fff;
-      color: #000;
-    }
+        .quem-somos-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-    .produtos-container {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
+        .quem-somos h2 {
+            font-size: 2.5rem;
+            color: #b0ffaa;
+            margin-bottom: 30px;
+        }
 
-    .produtos-title {
-      font-size: 2em;
-      color: #b0ffaa;
-      text-align: center;
-      margin-bottom: 30px;
-    }
+        .quem-somos p {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
 
-    .produtos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
+        .blocos-mvv {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
 
-    .produto-card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      padding: 15px;
-      text-align: center;
-      transition: transform 0.2s;
-    }
+        .bloco-mvv {
+            background-color: #1a1a1a;
+            border: 1px solid #3af73a;
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
 
-    .produto-card:hover {
-      transform: translateY(-5px);
-    }
+        .bloco-mvv h3 {
+            color: #3af73a;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
 
-    .produto-card img {
-      width: 100%;
-      max-height: 150px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
+        .bloco-mvv p {
+            color: #ddd;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
 
-    .produto-card h3 {
-      color: #14532d;
-      font-size: 1.1em;
-      margin-top: 10px;
-    }
+        .bloco-mvv:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 10px rgba(58, 247, 58, 0.3);
+        }
 
-    .produto-card p {
-      font-size: 0.9em;
-      color: #555;
-      margin: 10px 0;
-    }
+        footer {
+            background-color: rgb(58, 247, 58);
+            font-size: medium;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 150px;
+        }
 
-    .produto-card button {
-      background-color: #166534;
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+        /* Estilos do Menu Hambúrguer */
+        .hamburger-menu {
+            display: none; /* Escondido por padrão em telas grandes */
+        }
 
-    .produto-card button:hover {
-      background-color: #063103;
-    }
+        .hamburger-icon {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
 
-    footer {
-      background-color: rgb(58, 247, 58);
-      font-size: medium;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-     @media (max-width: 768px) {
-  .site-title,
-  .nav_links {
-    display: none;
-  }
+        @media (max-width: 768px) {
+            .site-title,
+            .nav_links {
+                display: none;
+            }
 
-  .header-container {
-    justify-content: space-between;
-  }
+            .header-container {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
 
-  .search-box {
-    margin-top: 10px;
-    width: 100%;
-  }
+            .hamburger-menu {
+                display: block; /* Mostra o ícone em telas pequenas */
+                order: 1;
+            }
 
-  .cart-icon {
-    margin-top: 10px;
-  }
-}
-  </style>
+            .nav_links.active {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgb(58, 247, 58);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 10px 0;
+                border-top: 1px solid #fff;
+                z-index: 10;
+                text-align: center;
+            }
+
+            .nav_links.active li {
+                padding: 10px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .nav_links.active li:last-child {
+                border-bottom: none;
+            }
+
+            .site-title.active {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding-bottom: 10px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                margin-bottom: 10px;
+            }
+
+            .search-box {
+                order: 3;
+                width: calc(100% - 120px);
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .cart-icon {
+                order: 4;
+                margin-left: auto;
+            }
+        }
+
+        /* --- Estilos do Carrinho --- */
+        .cart-section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+            background-color: #101010;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(58, 247, 58, 0.2);
+        }
+
+        .cart-section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #3af73a;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .cart-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap; /* Permite que as colunas quebrem em telas menores */
+            justify-content: center; /* Centraliza as colunas quando quebram */
+        }
+
+        .cart-items {
+            flex: 2; /* Ocupa mais espaço */
+            min-width: 300px; /* Garante uma largura mínima */
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            background-color: #1a1a1a;
+            border: 1px solid #3af73a;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            gap: 15px;
+            flex-wrap: wrap; /* Permite que os detalhes do item quebrem */
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #fff;
+        }
+
+        .cart-item-details {
+            flex: 1; /* Ocupa o restante do espaço */
+            min-width: 180px; /* Largura mínima para os detalhes */
+        }
+
+        .cart-item-details h4 {
+            margin: 0 0 5px 0;
+            color: #b0ffaa;
+            font-size: 1.2rem;
+        }
+
+        .cart-item-details p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cart-item-quantity button {
+            background-color: #3af73a;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .cart-item-quantity button:hover {
+            background-color: #2da12d;
+        }
+
+        .cart-item-quantity span {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .cart-item-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #3af73a;
+            margin-left: auto; /* Empurra o preço para a direita */
+        }
+
+        .remove-item-btn {
+            background-color: #ff4d4d;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+            margin-left: 10px; /* Espaçamento do preço */
+        }
+
+        .remove-item-btn:hover {
+            background-color: #cc0000;
+        }
+
+        .cart-summary {
+            flex: 1; /* Ocupa menos espaço */
+            background-color: #1a1a1a;
+            border: 1px solid #3af73a;
+            border-radius: 8px;
+            padding: 20px;
+            height: fit-content; /* Ajusta a altura ao conteúdo */
+            min-width: 280px; /* Largura mínima para o resumo */
+        }
+
+        .cart-summary h3 {
+            color: #b0ffaa;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cart-summary-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .cart-summary-line.total {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3af73a;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .checkout-btn {
+            background-color: #3af73a;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            padding: 15px 25px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 20px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #2da12d;
+        }
+
+        /* Responsividade para o carrinho */
+        @media (max-width: 768px) {
+            .cart-container {
+                flex-direction: column; /* Empilha as colunas verticalmente */
+                align-items: center; /* Centraliza os itens empilhados */
+            }
+
+            .cart-items,
+            .cart-summary {
+                width: 100%;
+                max-width: 500px; /* Limita a largura em telas menores para melhor leitura */
+            }
+
+            .cart-item {
+                flex-direction: column; /* Empilha os detalhes do item */
+                align-items: center;
+                text-align: center;
+            }
+
+            .cart-item-details {
+                margin-top: 10px;
+            }
+
+            .cart-item-price {
+                margin-left: 0; /* Remove o push para a direita */
+                margin-top: 10px; /* Adiciona espaçamento superior */
+            }
+
+            .remove-item-btn {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <a href="index.html"><img src="img/logo.png" width="100" height="100" alt="logo" /></a>
-      <a href="index.html"><span class="site-title">DEMÉTER BIOTECH</span></a>
-      <ul class="nav_links">
-        <li>CARRINHO</li>
-      </ul>
-      <div class="search-box">
-        <input type="text" placeholder="Pesquisar..." />
-        <button type="submit">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
-      </div>
-      <div class="cart-icon">
-      <a href="carrinho.html" title="Ver carrinho">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
-      <path d="M7 4h-2l-3 9v1h2l1.6 4.2c.2.6.8.8 1.3.8h10c.6 0 1.1-.3 1.3-.8l1.6-4.2h2v-1l-3-9h-2l-1 3h-6l-1-3zm1.2 5h7.6l1.4 4h-10.4l1.4-4zm.8 10c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zm8 0c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5z"/>
-      </svg>
-      </a>
-      </div>
-    </div>
-  </header>
+    <header>
+        <div class="header-container">
+            <img src="img/logo.png" width="100" height="100" alt="logo" />
+            <a href="index.html"><span class="site-title" id="siteTitle">DEMÉTER BIOTECH</span></a>
 
-  <div class="produtos-container">
-    <h2 class="produtos-title">Produtos</h2>
-    <div class="produtos-grid">
-      <div class="produto-card">
-        <img src="img/fert1.webp" alt="Produto 1" />
-        <h3>MAXGREEN</h3>
-        <p>NPK 10-10-10 - Mineral</p>
-        <button>Comprar</button>
-      </div>
-      <div class="produto-card">
-        <img src="img/fert2.webp" alt="Produto 2" />
-        <h3>FERT AZA</h3>
-        <p>Fert-Bio - Orgânico</p>
-        <button>Comprar</button>
-      </div>
-      <div class="produto-card">
-        <img src="img/fert3.webp" alt="Produto 3" />
-        <h3>HERINGER</h3>
-        <p>Superfosfato Simples (SSP) -	Mineral</p>
-        <button>Comprar</button>
-      </div>
-      <div class="produto-card">
-        <img src="img/fert4.jpg" alt="Produto 4" />
-        <h3>TITANIUM</h3>
-        <p>Fertilizante Foliar Completo	- Mineral</p>
-        <button>Comprar</button>
-      </div>
-      <div class="produto-card">
-        <img src="img/fert5.jpg" alt="Produto 5" />
-        <h3>FORTH</h3>
-        <p>Fertilizante Bokashi -	Orgânico</p>
-        <button>Comprar</button>
-      </div>
-      <div class="produto-card">
-        <img src="img/fert6.webp" alt="Produto 6" />
-        <h3>MAIS FERTIL</h3>
-        <p>Fósforo 30% - Mineral</p>
-        <button>Comprar</button>
-      </div>
-      <div class="produto-card">
-        <img src="img/fert7.webp" alt="Produto 7" />
-        <h3>HERINGER</h3>
-        <p>Uréia (46% N)	- Nitrogenado</p>
-        <button>Comprar</button>
-      </div>
-      <div class="produto-card">
-        <img src="img/fert8.webp" alt="Produto 8" />
-        <h3>VITAPLAN</h3>
-        <p>Adubo de Torta de Mamona -	Orgânico</p>
-        <button>Comprar</button>
-      </div>
-      <div class="produto-card">
-        <img src="img/fert9.jpg" alt="Produto 9" />
-        <h3>FERTIL SHOP</h3>
-        <p>Cloreto de Potássio (KCl)	- Mineral</p>
-        <button>Comprar</button>
-      </div>
-      <div class="produto-card">
-        <img src="img/fert10.webp" alt="Produto 10" />
-        <h3>CALTERRA</h3>
-        <p>Composto Humus de Minhoca	- Orgânico</p>
-        <button>Comprar</button>
-      </div>
-       <div class="produto-card">
-        <img src="img/fert11.jpg" alt="Produto 11" />
-        <h3>CALFÉRTIL</h3>
-        <p>Calcário Agrícola	- Corretivo</p>
-        <button>Comprar</button>
-      </div>
-      <div class="produto-card">
-        <img src="img/fert12.jpg" alt="Produto 12" />
-        <h3>FORTH</h3>
-        <p>Fertilizante Microelementar Quelatado - Mineral</p>
-        <button>Comprar</button>
-      </div>
-    </div>
-  </div>
+            <div class="hamburger-menu">
+                <button class="hamburger-icon" aria-label="Alternar menu de navegação">
+                    &#9776;
+                </button>
+            </div>
 
-  <footer>©Deméter Biotech: Todos os direitos reservados.</footer>
+            <ul class="nav_links" id="navLinks">
+                <li><a href="quem-somos.html" style="color:white;">QUEM SOMOS</a></li>
+                </ul>
+            <div class="search-box">
+                <input type="text" placeholder="Pesquisar..." />
+                <button type="submit">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="cart-icon">
+                <a href="carrinho.html" title="Ver carrinho">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
+                        <path d="M7 4h-2l-3 9v1h2l1.6 4.2c.2.6.8.8 1.3.8h10c.6 0 1.1-.3 1.3-.8l1.6-4.2h2v-1l-3-9h-2l-1 3h-6l-1-3zm1.2 5h7.6l1.4 4h-10.4l1.4-4zm.8 10c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zm8 0c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="cart-section">
+        <h2>Seu Carrinho</h2>
+        <div class="cart-container">
+            <div class="cart-items">
+                <div class="cart-item">
+                    <img src="https://via.placeholder.com/80" alt="Produto 1" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <h4>Fertilizante Inteligente Ultra-Crescimento</h4>
+                        <p>Preço Unitário: R$ 150,00</p>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-decrease">-</button>
+                        <span>1</span>
+                        <button class="quantity-increase">+</button>
+                    </div>
+                    <span class="cart-item-price">R$ 150,00</span>
+                    <button class="remove-item-btn">Remover</button>
+                </div>
+
+                <div class="cart-item">
+                    <img src="https://via.placeholder.com/80" alt="Produto 2" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <h4>Semente de Milho Transgênico Resistente</h4>
+                        <p>Preço Unitário: R$ 250,00</p>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-decrease">-</button>
+                        <span>2</span>
+                        <button class="quantity-increase">+</button>
+                    </div>
+                    <span class="cart-item-price">R$ 500,00</span>
+                    <button class="remove-item-btn">Remover</button>
+                </div>
+
+                </div>
+
+            <div class="cart-summary">
+                <h3>Resumo do Pedido</h3>
+                <div class="cart-summary-line">
+                    <span>Subtotal:</span>
+                    <span>R$ 650,00</span>
+                </div>
+                <div class="cart-summary-line">
+                    <span>Frete:</span>
+                    <span>R$ 30,00</span>
+                </div>
+                <div class="cart-summary-line total">
+                    <span>Total:</span>
+                    <span>R$ 680,00</span>
+                </div>
+                <button class="checkout-btn">Finalizar Compra</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>©Deméter Biotech: Todos os direitos reservados.</footer>
+
+    <script>
+        // O JavaScript para o menu hambúrguer pode ficar no seu scripts.js ou aqui mesmo
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerIcon = document.querySelector('.hamburger-icon');
+            const navLinks = document.getElementById('navLinks');
+            const siteTitle = document.getElementById('siteTitle');
+
+            if (hamburgerIcon && navLinks && siteTitle) {
+                hamburgerIcon.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    siteTitle.classList.toggle('active');
+                });
+
+                navLinks.querySelectorAll('li a').forEach(link => { // Notei que agora você tem <a> dentro de <li>
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        siteTitle.classList.remove('active');
+                    });
+                });
+            }
+        });
+
+        // Você adicionaria o JS para gerenciar o carrinho (quantidade, remover, totais) aqui ou em scripts.js
+        // Exemplo simples de funcionalidade de quantidade (apenas visual, sem lógica de dados)
+        document.querySelectorAll('.quantity-increase').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const quantitySpan = e.target.previousElementSibling;
+                let quantity = parseInt(quantitySpan.textContent);
+                quantitySpan.textContent = quantity + 1;
+                // Em um projeto real, você atualizaria o preço total e o subtotal aqui.
+            });
+        });
+
+        document.querySelectorAll('.quantity-decrease').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const quantitySpan = e.target.nextElementSibling;
+                let quantity = parseInt(quantitySpan.textContent);
+                if (quantity > 1) {
+                    quantitySpan.textContent = quantity - 1;
+                    // Em um projeto real, você atualizaria o preço total e o subtotal aqui.
+                }
+            });
+        });
+
+        document.querySelectorAll('.remove-item-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const cartItem = e.target.closest('.cart-item');
+                if (cartItem) {
+                    cartItem.remove();
+                    // Em um projeto real, você removeria o item do array de produtos do carrinho e recalcularia os totais.
+                }
+            });
+        });
+    </script>
 </body>
 </html>
